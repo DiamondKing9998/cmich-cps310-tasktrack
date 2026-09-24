@@ -69,3 +69,11 @@ Goodbye!
 ## Current Limitation
 
 Tasks cannot be removed/completed from tasks.txt using the program.
+
+## Version Control
+
+This project is managed with Git for local version control. As changes are made to files such as `tasktrack.py`, `tasks.txt`, and `README.md`, they can be saved in a Git repository with commits that track the history of the project.
+
+GitHub can also be used as the remote repository for this project, allowing the code to be pushed online for backup, sharing, and collaboration. A typical workflow is to initialize or connect the local repository, add files with `git add`, commit changes with `git commit -m "message"`, and push them to GitHub with `git push`.
+
+This setup makes it easy to review progress over time, restore earlier versions, and collaborate with others on the TaskTrack program.
