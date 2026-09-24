@@ -17,8 +17,7 @@ def load_tasks(filename):
                 if task:
                     tasks.append(task)
     except FileNotFoundError:
-        with open(filename, "w") as file:
-            pass
+        print("No file found.")
         return []
 
     return tasks
@@ -32,11 +31,12 @@ def display_menu():
     print("3. Exit")
 
 
-def add_task(tasks, task=None):
+def add_task(tasks):
     """Add a task to the list, prompting the user if no task is provided."""
-    if task is None:
-        task = input("Enter a new task: ")
-
+    task = input("Enter a new task: ").strip()
+    if not task:
+        print("A task cannot be empty.")
+        return
     tasks.append(task)
     print("Task added successfully.")
 
@@ -51,6 +51,12 @@ def view_tasks(tasks):
 
     for i, task in enumerate(tasks, start=1):
         print(f"{i}. {task}")
+
+def save_tasks(tasks, filename):
+    """Save tasks to a text file."""
+    with open(filename, "w") as file:
+        for task in tasks:
+            file.write(f"{task}\n")
 
 
 def main():
