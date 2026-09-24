@@ -6,13 +6,66 @@ A command-line task manager created for CPS 310.
 
 - View tasks
 - Add tasks
+- Save tasks to tasks.txt file
+- Auto-load tasks from tasks.txt file
+
+## Requirements
+
+-Python 3
+
+## Project Files
+
+-`tasktrack.py` - The actual program's Python file
+-`tasks.txt` - Example tasks file that contains the tasks the program reads/writes to
+-`.gitignore` - Tells Git what files to ignore sending to the repo
 
 ## Running the Program
 
- - Run command-line: python tasktrack.py
- - Choose one of the three given options
- - Follow instructions in terminal depending on the option
+ - Run command-line via VS Code: Menu Button -> Terminal -> New:
+ ```text
+ python tasktrack.py
+ ```
+ ## Task Persistence
+
+When the program starts, it reads the task list from `tasks.txt` by calling `load_tasks()`.
+Each non-empty line in the file is treated as one task, so the file acts like a simple list of tasks with one task per line.
+
+If `tasks.txt` does not exist yet, the program prints a message and starts with an empty task list.
+The project includes a `save_tasks()` function that writes tasks back to the file, but in the current version it is not called automatically after adding a task. That means tasks are currently loaded at startup and kept in memory during the session, rather than being saved back to disk immediately.
+
+## Sample Interaction
+
+```text
+$ python tasktrack.py
+
+TaskTrack Menu
+1. View tasks
+2. Add task
+3. Exit
+Choose an option: 1
+
+Tasks:
+1. Complete ICA04
+2. Review GitHub commands
+3. Update the TaskTrack README
+4. Test persistent storage
+
+TaskTrack Menu
+1. View tasks
+2. Add task
+3. Exit
+Choose an option: 2
+Enter a new task: Submit assignment
+Task added successfully.
+
+TaskTrack Menu
+1. View tasks
+2. Add task
+3. Exit
+Choose an option: 3
+Goodbye!
+```
 
 ## Current Limitation
 
-Tasks created in a previous program execution are not preserved
+Tasks cannot be removed/completed from tasks.txt using the program.
