@@ -31,7 +31,7 @@ When the program starts, it reads the task list from `tasks.txt` by calling `loa
 Each non-empty line in the file is treated as one task, so the file acts like a simple list of tasks with one task per line.
 
 If `tasks.txt` does not exist yet, the program prints a message and starts with an empty task list.
-The project includes a `save_tasks()` function that writes tasks back to the file, but in the current version it is not called automatically after adding a task. That means tasks are currently loaded at startup and kept in memory during the session, rather than being saved back to disk immediately.
+The program now calls `save_tasks()` after each successful add, so new tasks are written back to `tasks.txt` immediately.
 
 ## Sample Interaction
 

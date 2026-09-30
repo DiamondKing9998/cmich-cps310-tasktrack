@@ -38,6 +38,7 @@ def add_task(tasks):
         print("A task cannot be empty.")
         return
     tasks.append(task)
+    save_tasks(tasks, TASKS_FILE)
     print("Task added successfully.")
 
 
